@@ -1,0 +1,260 @@
+@charset "utf-8";
+html,
+body {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: #e6e5e5;
+}
+html * {
+  outline: none;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: transparent;
+}
+html,
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+  font-style: normal;
+  font-weight: 500;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 500;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+input {
+  border-radius: 0;
+}
+img {
+  display: block;
+  border: none;
+  vertical-align: middle;
+}
+i,
+em {
+  font-style: normal;
+}
+a {
+  color: #000000;
+  text-decoration: none;
+}
+a,
+a:hover,
+a:active,
+a:visited,
+a:link,
+a:focus {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  background: none;
+  text-decoration: none;
+}
+:focus {
+  outline: none;
+}
+iframe {
+  border: none;
+}
+.clear:before,
+.clear:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.clear {
+  zoom: 1;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.head {
+  background: url("/img/bg/timg.png") no-repeat;
+  background-size: 100% 100%;
+}
+.head .top-bar {
+  padding-top: 0.5rem;
+  height: 1.5rem;
+  position: relative;
+}
+.head .top-bar a {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 0.5rem;
+}
+.head .top-bar a.return {
+  left: 0.4rem;
+  background: url("/img/bg/bg-return.png") no-repeat;
+  background-size: 100% 100%;
+}
+.head .top-bar a.setting {
+  right: 0.4rem;
+  background: url("/img/bg/bg-setting.png") no-repeat;
+  background-size: 100% 100%;
+}
+.head .top-bar a img {
+  width: 100%;
+  height: 100%;
+}
+.head .head-portrait {
+  height: 5.4rem;
+  line-height: 5.4rem;
+  text-align: center;
+}
+.head .head-portrait .head-portrait-box {
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
+  border: 0.2rem solid #ffffff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.head .head-portrait .head-portrait-box img {
+  width: 100%;
+  height: 100%;
+}
+.head .nickname {
+  margin-top: 0.6rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  text-align: center;
+}
+.head .nickname span {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: "Microsoft YaHei";
+}
+.head .message {
+  margin-top: 1.4rem;
+  position: relative;
+}
+.head .message .bg {
+  height: 2.25rem;
+  background: #000000;
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+.head .message a {
+  position: absolute;
+  left: 35%;
+  top: 0;
+  display: block;
+  width: 30%;
+  height: 0.75rem;
+  line-height: 0.75rem;
+  padding: 0.75rem 0;
+  margin: 0 auto;
+  text-align: center;
+}
+.head .message a em {
+  display: inline-block;
+  vertical-align: top;
+  width: 1rem;
+  height: 0.75rem;
+  background: url("/img/bg/bg-message.png") no-repeat;
+  background-size: 100% 100%;
+}
+.head .message a span {
+  display: inline-block;
+  vertical-align: top;
+  height: 0.75rem;
+  line-height: 0.75;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: "Microsoft YaHei";
+}
+.content {
+  margin-top: 0.5rem;
+  background: #ffffff;
+}
+.content ul li {
+  float: left;
+  width: 33.3%;
+  height: 5.2rem;
+  text-align: center;
+  border-bottom: 0.05rem solid #dedede;
+  border-left: 0.05rem solid #dedede;
+  margin-left: -0.05rem;
+}
+.content ul li a {
+  display: block;
+  text-align: center;
+  color: #727171;
+  margin: 1rem auto;
+}
+.content ul li a img {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.2rem;
+}
+.content ul li a .title {
+  display: block;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 0.6rem;
+}

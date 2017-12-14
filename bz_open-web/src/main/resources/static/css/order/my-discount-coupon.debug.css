@@ -1,0 +1,301 @@
+@charset "utf-8";
+html,
+body {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: #e6e5e5;
+}
+html * {
+  outline: none;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: transparent;
+}
+html,
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+  font-style: normal;
+  font-weight: 500;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 500;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+input {
+  border-radius: 0;
+}
+img {
+  display: block;
+  border: none;
+  vertical-align: middle;
+}
+i,
+em {
+  font-style: normal;
+}
+a {
+  color: #000000;
+  text-decoration: none;
+}
+a,
+a:hover,
+a:active,
+a:visited,
+a:link,
+a:focus {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  background: none;
+  text-decoration: none;
+}
+:focus {
+  outline: none;
+}
+iframe {
+  border: none;
+}
+.clear:before,
+.clear:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.clear {
+  zoom: 1;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.top-bar {
+  width: 100%;
+  height: 2.4rem;
+  background: #f0f0f0;
+  border-bottom: 1px solid #6a6667;
+  box-shadow: 0 1px 1px #bcbabb;
+  position: relative;
+}
+.top-bar .return {
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  display: block;
+  width: 2.2rem;
+  height: 2.4rem;
+  line-height: 2.4rem;
+  text-align: center;
+  font-size: 0.8rem;
+  padding-left: 0.55rem;
+  background: url("/img/bg/bg-return2.png") no-repeat left center;
+  background-size: 20% 40%;
+}
+.top-bar h1 {
+  width: 100%;
+  height: 100%;
+  line-height: 2.4rem;
+  text-align: center;
+  font-size: 1rem;
+}
+.return-top {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: fixed;
+  top: 80%;
+  right: 0;
+  display: none;
+}
+.return-top a img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.content {
+  margin-top: 0.5rem;
+}
+.content .btn {
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.75rem;
+  font-family: "Microsoft YaHei";
+  background: #ffffff;
+  box-shadow: 0 1px 1px #bcbabb;
+}
+.content .btn .drop {
+  display: inline-block;
+  margin: 0 6.2%;
+  width: 20%;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 0.75rem;
+}
+.content .btn .drop.active {
+  height: 1.9rem;
+  color: #d52123;
+  border-bottom: 0.1rem solid #d52123;
+}
+.content .item {
+  display: none;
+  margin-top: 0.5rem;
+}
+.content .item.active {
+  display: block;
+}
+.content .item .message {
+  background: #ffffff;
+  margin: 0 0.5rem 0.5rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  height: 5rem;
+}
+.content .item .message .left {
+  float: left;
+  width: 5.3rem;
+  height: 5rem;
+  line-height: 5rem;
+  text-align: center;
+}
+.content .item .message .left .wrap {
+  padding-top: 1rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.content .item .message .left .wrap i {
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+.content .item .message .left .wrap em {
+  font-size: 1.9rem;
+  color: #ffffff;
+}
+.content .item .message .left span {
+  display: block;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.6rem;
+  color: #ffffff;
+}
+.content .item .message .right {
+  margin-left: 6.75rem;
+  width: 11rem;
+  height: 5rem;
+}
+.content .item .message .right .title {
+  padding-top: 0.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: 0.75rem;
+  color: #3a3a39;
+}
+.content .item .message .right .number {
+  height: 1rem;
+  line-height: 1rem;
+  font-size: 0.6rem;
+  color: #595757;
+}
+.content .item .message .right .box {
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.content .item .message .right .box .time {
+  font-size: 0.6rem;
+  color: #bebdbd;
+}
+.content .item .message .right .box a {
+  display: block;
+  float: right;
+  width: 3rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  text-align: center;
+  font-size: 0.6rem;
+  border-radius: 1.2rem;
+  margin: 0.1rem 0;
+}
+.content .item.unused .message {
+  background: url("/img/bg/bg-unused-coupon.png") no-repeat;
+  background-size: cover;
+}
+.content .item.unused .message .right .box a {
+  color: #d8292c;
+  border: 0.05rem solid #d8292c;
+}
+.content .item.used .message {
+  background: url("/img/bg/bg-used-coupon.png") no-repeat;
+  background-size: cover;
+}
+.content .item.used .message .right .box a {
+  color: #ea9e85;
+  border: 0.05rem solid #ea9e85;
+}
+.content .item.due .message {
+  background: url("/img/bg/bg-due-coupon.png") no-repeat;
+  background-size: cover;
+}
+.content .item.due .message .right .box a {
+  color: #bebdbd;
+  border: 0.05rem solid #bebdbd;
+}

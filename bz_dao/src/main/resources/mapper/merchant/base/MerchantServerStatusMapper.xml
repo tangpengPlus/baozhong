@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bz.dao.mapper.merchant.MerchantServerStatusMapper">
+  <resultMap id="BaseResultMap" type="com.bz.dao.pojo.merchant.MerchantServerStatus">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="merchant_id" jdbcType="INTEGER" property="merchantId" />
+    <result column="createtime" jdbcType="DATE" property="createtime" />
+    <result column="aggregatePayStatus" jdbcType="INTEGER" property="aggregatepaystatus" />
+    <result column="creditCardStatus" jdbcType="INTEGER" property="creditcardstatus" />
+    <result column="customersAccumulateStatus" jdbcType="INTEGER" property="customersaccumulatestatus" />
+    <result column="phonesMessageStatus" jdbcType="INTEGER" property="phonesmessagestatus" />
+    <result column="onlineStoreStatus" jdbcType="INTEGER" property="onlinestorestatus" />
+    <result column="payBeforeAdvertisingStatus" jdbcType="INTEGER" property="paybeforeadvertisingstatus" />
+    <result column="receiptsStatus" jdbcType="INTEGER" property="receiptsstatus" />
+    <result column="storeMapStatus" jdbcType="INTEGER" property="storemapstatus" />
+    <result column="salesStatisticsStatus" jdbcType="INTEGER" property="salesstatisticsstatus" />
+    <result column="paymentDetailsStatus" jdbcType="INTEGER" property="paymentdetailsstatus" />
+    <result column="serviceLinksStatus" jdbcType="INTEGER" property="servicelinksstatus" />
+    <result column="grantRedpacketStatus" jdbcType="INTEGER" property="grantredpacketstatus" />
+    <result column="groupsStatus" jdbcType="INTEGER" property="groupsstatus" />
+    <result column="payAfterAdvertisingStatus" jdbcType="INTEGER" property="payafteradvertisingstatus" />
+    <result column="isdelete" jdbcType="INTEGER" property="isdelete" />
+    <result column="redPackagePay" jdbcType="DOUBLE" property="redpackagepay" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, number, merchant_id, createtime, aggregatePayStatus, creditCardStatus, customersAccumulateStatus, 
+    phonesMessageStatus, onlineStoreStatus, payBeforeAdvertisingStatus, receiptsStatus, 
+    storeMapStatus, salesStatisticsStatus, paymentDetailsStatus, serviceLinksStatus, 
+    grantRedpacketStatus, groupsStatus, payAfterAdvertisingStatus, isdelete, redPackagePay
+  </sql>
+  <insert id="insertSelective" parameterType="com.bz.dao.pojo.merchant.MerchantServerStatus">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into merchant_server_status
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="number != null">
+        number,
+      </if>
+      <if test="merchantId != null">
+        merchant_id,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="aggregatepaystatus != null">
+        aggregatePayStatus,
+      </if>
+      <if test="creditcardstatus != null">
+        creditCardStatus,
+      </if>
+      <if test="customersaccumulatestatus != null">
+        customersAccumulateStatus,
+      </if>
+      <if test="phonesmessagestatus != null">
+        phonesMessageStatus,
+      </if>
+      <if test="onlinestorestatus != null">
+        onlineStoreStatus,
+      </if>
+      <if test="paybeforeadvertisingstatus != null">
+        payBeforeAdvertisingStatus,
+      </if>
+      <if test="receiptsstatus != null">
+        receiptsStatus,
+      </if>
+      <if test="storemapstatus != null">
+        storeMapStatus,
+      </if>
+      <if test="salesstatisticsstatus != null">
+        salesStatisticsStatus,
+      </if>
+      <if test="paymentdetailsstatus != null">
+        paymentDetailsStatus,
+      </if>
+      <if test="servicelinksstatus != null">
+        serviceLinksStatus,
+      </if>
+      <if test="grantredpacketstatus != null">
+        grantRedpacketStatus,
+      </if>
+      <if test="groupsstatus != null">
+        groupsStatus,
+      </if>
+      <if test="payafteradvertisingstatus != null">
+        payAfterAdvertisingStatus,
+      </if>
+      <if test="isdelete != null">
+        isdelete,
+      </if>
+      <if test="redpackagepay != null">
+        redPackagePay,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        #{merchantId,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=DATE},
+      </if>
+      <if test="aggregatepaystatus != null">
+        #{aggregatepaystatus,jdbcType=INTEGER},
+      </if>
+      <if test="creditcardstatus != null">
+        #{creditcardstatus,jdbcType=INTEGER},
+      </if>
+      <if test="customersaccumulatestatus != null">
+        #{customersaccumulatestatus,jdbcType=INTEGER},
+      </if>
+      <if test="phonesmessagestatus != null">
+        #{phonesmessagestatus,jdbcType=INTEGER},
+      </if>
+      <if test="onlinestorestatus != null">
+        #{onlinestorestatus,jdbcType=INTEGER},
+      </if>
+      <if test="paybeforeadvertisingstatus != null">
+        #{paybeforeadvertisingstatus,jdbcType=INTEGER},
+      </if>
+      <if test="receiptsstatus != null">
+        #{receiptsstatus,jdbcType=INTEGER},
+      </if>
+      <if test="storemapstatus != null">
+        #{storemapstatus,jdbcType=INTEGER},
+      </if>
+      <if test="salesstatisticsstatus != null">
+        #{salesstatisticsstatus,jdbcType=INTEGER},
+      </if>
+      <if test="paymentdetailsstatus != null">
+        #{paymentdetailsstatus,jdbcType=INTEGER},
+      </if>
+      <if test="servicelinksstatus != null">
+        #{servicelinksstatus,jdbcType=INTEGER},
+      </if>
+      <if test="grantredpacketstatus != null">
+        #{grantredpacketstatus,jdbcType=INTEGER},
+      </if>
+      <if test="groupsstatus != null">
+        #{groupsstatus,jdbcType=INTEGER},
+      </if>
+      <if test="payafteradvertisingstatus != null">
+        #{payafteradvertisingstatus,jdbcType=INTEGER},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=INTEGER},
+      </if>
+      <if test="redpackagepay != null">
+        #{redpackagepay,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bz.dao.pojo.merchant.MerchantServerStatus">
+    update merchant_server_status
+    <set>
+      <if test="number != null">
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        merchant_id = #{merchantId,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=DATE},
+      </if>
+      <if test="aggregatepaystatus != null">
+        aggregatePayStatus = #{aggregatepaystatus,jdbcType=INTEGER},
+      </if>
+      <if test="creditcardstatus != null">
+        creditCardStatus = #{creditcardstatus,jdbcType=INTEGER},
+      </if>
+      <if test="customersaccumulatestatus != null">
+        customersAccumulateStatus = #{customersaccumulatestatus,jdbcType=INTEGER},
+      </if>
+      <if test="phonesmessagestatus != null">
+        phonesMessageStatus = #{phonesmessagestatus,jdbcType=INTEGER},
+      </if>
+      <if test="onlinestorestatus != null">
+        onlineStoreStatus = #{onlinestorestatus,jdbcType=INTEGER},
+      </if>
+      <if test="paybeforeadvertisingstatus != null">
+        payBeforeAdvertisingStatus = #{paybeforeadvertisingstatus,jdbcType=INTEGER},
+      </if>
+      <if test="receiptsstatus != null">
+        receiptsStatus = #{receiptsstatus,jdbcType=INTEGER},
+      </if>
+      <if test="storemapstatus != null">
+        storeMapStatus = #{storemapstatus,jdbcType=INTEGER},
+      </if>
+      <if test="salesstatisticsstatus != null">
+        salesStatisticsStatus = #{salesstatisticsstatus,jdbcType=INTEGER},
+      </if>
+      <if test="paymentdetailsstatus != null">
+        paymentDetailsStatus = #{paymentdetailsstatus,jdbcType=INTEGER},
+      </if>
+      <if test="servicelinksstatus != null">
+        serviceLinksStatus = #{servicelinksstatus,jdbcType=INTEGER},
+      </if>
+      <if test="grantredpacketstatus != null">
+        grantRedpacketStatus = #{grantredpacketstatus,jdbcType=INTEGER},
+      </if>
+      <if test="groupsstatus != null">
+        groupsStatus = #{groupsstatus,jdbcType=INTEGER},
+      </if>
+      <if test="payafteradvertisingstatus != null">
+        payAfterAdvertisingStatus = #{payafteradvertisingstatus,jdbcType=INTEGER},
+      </if>
+      <if test="isdelete != null">
+        isdelete = #{isdelete,jdbcType=INTEGER},
+      </if>
+      <if test="redpackagepay != null">
+        redPackagePay = #{redpackagepay,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <sql id="sql_columns">
+    id,number,merchant_id,createtime,aggregatePayStatus,creditCardStatus,customersAccumulateStatus,phonesMessageStatus,onlineStoreStatus,payBeforeAdvertisingStatus,receiptsStatus,storeMapStatus,salesStatisticsStatus,paymentDetailsStatus,serviceLinksStatus,grantRedpacketStatus,groupsStatus,payAfterAdvertisingStatus,isdelete,redPackagePay
+  </sql>
+  <sql id="sql_where">
+    <if test="item !=null "> 
+ <where>
+      <if test="null != item.id">and id = #{item.id}</if>
+      <if test="null != item.number and '' != item.number">and number = #{item.number}</if>
+      <if test="null != item.merchantId">and merchant_id = #{item.merchantId}</if>
+      <if test="null != item.createtime and '' != item.createtime">and createtime = #{item.createtime}</if>
+      <if test="null != item.aggregatepaystatus">and aggregatePayStatus = #{item.aggregatepaystatus}</if>
+      <if test="null != item.creditcardstatus">and creditCardStatus = #{item.creditcardstatus}</if>
+      <if test="null != item.customersaccumulatestatus">and customersAccumulateStatus = #{item.customersaccumulatestatus}</if>
+      <if test="null != item.phonesmessagestatus">and phonesMessageStatus = #{item.phonesmessagestatus}</if>
+      <if test="null != item.onlinestorestatus">and onlineStoreStatus = #{item.onlinestorestatus}</if>
+      <if test="null != item.paybeforeadvertisingstatus">and payBeforeAdvertisingStatus = #{item.paybeforeadvertisingstatus}</if>
+      <if test="null != item.receiptsstatus">and receiptsStatus = #{item.receiptsstatus}</if>
+      <if test="null != item.storemapstatus">and storeMapStatus = #{item.storemapstatus}</if>
+      <if test="null != item.salesstatisticsstatus">and salesStatisticsStatus = #{item.salesstatisticsstatus}</if>
+      <if test="null != item.paymentdetailsstatus">and paymentDetailsStatus = #{item.paymentdetailsstatus}</if>
+      <if test="null != item.servicelinksstatus">and serviceLinksStatus = #{item.servicelinksstatus}</if>
+      <if test="null != item.grantredpacketstatus">and grantRedpacketStatus = #{item.grantredpacketstatus}</if>
+      <if test="null != item.groupsstatus">and groupsStatus = #{item.groupsstatus}</if>
+      <if test="null != item.payafteradvertisingstatus">and payAfterAdvertisingStatus = #{item.payafteradvertisingstatus}</if>
+      <if test="null != item.isdelete">and isdelete = #{item.isdelete}</if>
+      <if test="null != item.redpackagepay and '' != item.redpackagepay">and redPackagePay = #{item.redpackagepay}</if>
+	</where> 
+ </if>
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from merchant_server_status where id = #{id}
+  </select>
+  <select id="selectOne" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from merchant_server_status <include refid="sql_where" /> limit 1
+  </select>
+  <select id="selectList" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from merchant_server_status <include refid="sql_where" />  order by id desc
+  </select>
+  <sql id="sql_save_columns">
+    insert into merchant_server_status(
+	  <if test="null != item.number"> number</if>
+	  <if test="null != item.merchantId">, merchant_id</if>
+	  <if test="null != item.createtime">, createtime</if>
+	  <if test="null != item.aggregatepaystatus">, aggregatePayStatus</if>
+	  <if test="null != item.creditcardstatus">, creditCardStatus</if>
+	  <if test="null != item.customersaccumulatestatus">, customersAccumulateStatus</if>
+	  <if test="null != item.phonesmessagestatus">, phonesMessageStatus</if>
+	  <if test="null != item.onlinestorestatus">, onlineStoreStatus</if>
+	  <if test="null != item.paybeforeadvertisingstatus">, payBeforeAdvertisingStatus</if>
+	  <if test="null != item.receiptsstatus">, receiptsStatus</if>
+	  <if test="null != item.storemapstatus">, storeMapStatus</if>
+	  <if test="null != item.salesstatisticsstatus">, salesStatisticsStatus</if>
+	  <if test="null != item.paymentdetailsstatus">, paymentDetailsStatus</if>
+	  <if test="null != item.servicelinksstatus">, serviceLinksStatus</if>
+	  <if test="null != item.grantredpacketstatus">, grantRedpacketStatus</if>
+	  <if test="null != item.groupsstatus">, groupsStatus</if>
+	  <if test="null != item.payafteradvertisingstatus">, payAfterAdvertisingStatus</if>
+	  <if test="null != item.isdelete">, isdelete</if>
+	  <if test="null != item.redpackagepay">, redPackagePay</if>
+	) values
+  </sql>
+  <sql id="sql_save_values">
+    (
+	  <if test="null != item.number"> #{item.number}</if>
+	  <if test="null != item.merchantId">, #{item.merchantId}</if>
+	  <if test="null != item.createtime">, #{item.createtime}</if>
+	  <if test="null != item.aggregatepaystatus">, #{item.aggregatepaystatus}</if>
+	  <if test="null != item.creditcardstatus">, #{item.creditcardstatus}</if>
+	  <if test="null != item.customersaccumulatestatus">, #{item.customersaccumulatestatus}</if>
+	  <if test="null != item.phonesmessagestatus">, #{item.phonesmessagestatus}</if>
+	  <if test="null != item.onlinestorestatus">, #{item.onlinestorestatus}</if>
+	  <if test="null != item.paybeforeadvertisingstatus">, #{item.paybeforeadvertisingstatus}</if>
+	  <if test="null != item.receiptsstatus">, #{item.receiptsstatus}</if>
+	  <if test="null != item.storemapstatus">, #{item.storemapstatus}</if>
+	  <if test="null != item.salesstatisticsstatus">, #{item.salesstatisticsstatus}</if>
+	  <if test="null != item.paymentdetailsstatus">, #{item.paymentdetailsstatus}</if>
+	  <if test="null != item.servicelinksstatus">, #{item.servicelinksstatus}</if>
+	  <if test="null != item.grantredpacketstatus">, #{item.grantredpacketstatus}</if>
+	  <if test="null != item.groupsstatus">, #{item.groupsstatus}</if>
+	  <if test="null != item.payafteradvertisingstatus">, #{item.payafteradvertisingstatus}</if>
+	  <if test="null != item.isdelete">, #{item.isdelete}</if>
+	  <if test="null != item.redpackagepay">, #{item.redpackagepay}</if>
+	)
+  </sql>
+  <insert id="save" keyProperty="item.id" useGeneratedKeys="true">
+    <include refid="sql_save_columns" /><include refid="sql_save_values" />
+  </insert>
+  <insert id="batchSave">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_save_columns" /><include refid="sql_save_values" />
+	</foreach>
+  </insert>
+  <sql id="sql_update">
+    update merchant_server_status
+ <set> 
+      <if test="null != item.number">number = #{item.number},</if>
+      <if test="null != item.merchantId">merchant_id = #{item.merchantId},</if>
+      <if test="null != item.createtime">createtime = #{item.createtime},</if>
+      <if test="null != item.aggregatepaystatus">aggregatePayStatus = #{item.aggregatepaystatus},</if>
+      <if test="null != item.creditcardstatus">creditCardStatus = #{item.creditcardstatus},</if>
+      <if test="null != item.customersaccumulatestatus">customersAccumulateStatus = #{item.customersaccumulatestatus},</if>
+      <if test="null != item.phonesmessagestatus">phonesMessageStatus = #{item.phonesmessagestatus},</if>
+      <if test="null != item.onlinestorestatus">onlineStoreStatus = #{item.onlinestorestatus},</if>
+      <if test="null != item.paybeforeadvertisingstatus">payBeforeAdvertisingStatus = #{item.paybeforeadvertisingstatus},</if>
+      <if test="null != item.receiptsstatus">receiptsStatus = #{item.receiptsstatus},</if>
+      <if test="null != item.storemapstatus">storeMapStatus = #{item.storemapstatus},</if>
+      <if test="null != item.salesstatisticsstatus">salesStatisticsStatus = #{item.salesstatisticsstatus},</if>
+      <if test="null != item.paymentdetailsstatus">paymentDetailsStatus = #{item.paymentdetailsstatus},</if>
+      <if test="null != item.servicelinksstatus">serviceLinksStatus = #{item.servicelinksstatus},</if>
+      <if test="null != item.grantredpacketstatus">grantRedpacketStatus = #{item.grantredpacketstatus},</if>
+      <if test="null != item.groupsstatus">groupsStatus = #{item.groupsstatus},</if>
+      <if test="null != item.payafteradvertisingstatus">payAfterAdvertisingStatus = #{item.payafteradvertisingstatus},</if>
+      <if test="null != item.isdelete">isdelete = #{item.isdelete},</if>
+      <if test="null != item.redpackagepay">redPackagePay = #{item.redpackagepay},</if>
+</set>	where id = #{item.id}
+  </sql>
+  <update id="update">
+    <include refid="sql_update" />
+  </update>
+  <update id="batchUpdate">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_update" />
+	</foreach>
+  </update>
+  <delete id="delArray">
+    delete from merchant_server_status where id in
+	<foreach collection="array" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delList">
+    delete from merchant_server_status where id in
+	<foreach collection="list" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delByCondition">
+     update merchant_server_status set isDelete=1 <include refid="sql_where" />
+  </delete>
+  <delete id="delById">
+     update merchant_server_status set isDelete=1  where id =#{id} 
+  </delete>
+</mapper>

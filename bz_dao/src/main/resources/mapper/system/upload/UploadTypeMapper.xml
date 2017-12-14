@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bz.dao.mapper.upload.UploadTypeMapper">
+  <resultMap id="BaseResultMap" type="com.bz.dao.pojo.upload.UploadType">
+    <id column="uploadTypeId" jdbcType="SMALLINT" property="uploadtypeid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="isDelete" jdbcType="TINYINT" property="isdelete" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uploadTypeId, title, isDelete, createTime
+  </sql>
+  <insert id="insertSelective" parameterType="com.bz.dao.pojo.upload.UploadType">
+    insert into system_upload_type
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uploadtypeid != null">
+        uploadTypeId,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="isdelete != null">
+        isDelete,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uploadtypeid != null">
+        #{uploadtypeid,jdbcType=SMALLINT},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bz.dao.pojo.upload.UploadType">
+    update system_upload_type
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null">
+        isDelete = #{isdelete,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where uploadTypeId = #{uploadtypeid,jdbcType=SMALLINT}
+  </update>
+  <sql id="sql_columns">
+    uploadTypeId,title,isDelete,createTime
+  </sql>
+  <sql id="sql_where">
+    <if test="item !=null "> 
+ <where>
+      <if test="null != item.uploadtypeid and '' != item.uploadtypeid">and uploadTypeId = #{item.uploadtypeid}</if>
+      <if test="null != item.title and '' != item.title">and title = #{item.title}</if>
+      <if test="null != item.isdelete and '' != item.isdelete">and isDelete = #{item.isdelete}</if>
+      <if test="null != item.createtime and '' != item.createtime">and createTime = #{item.createtime}</if>
+	</where> 
+ </if>
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from system_upload_type where uploadTypeId = #{uploadtypeid}
+  </select>
+  <select id="selectOne" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from system_upload_type <include refid="sql_where" /> limit 1
+  </select>
+  <select id="selectList" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from system_upload_type <include refid="sql_where" />  order by uploadtypeid desc
+  </select>
+  <sql id="sql_save_columns">
+    insert into system_upload_type(
+	  <if test="null != item.title"> title</if>
+	  <if test="null != item.isdelete">, isDelete</if>
+	  <if test="null != item.createtime">, createTime</if>
+	) values
+  </sql>
+  <sql id="sql_save_values">
+    (
+	  <if test="null != item.title"> #{item.title}</if>
+	  <if test="null != item.isdelete">, #{item.isdelete}</if>
+	  <if test="null != item.createtime">, #{item.createtime}</if>
+	)
+  </sql>
+  <insert id="save" keyProperty="item.uploadtypeid" useGeneratedKeys="true">
+    <include refid="sql_save_columns" /><include refid="sql_save_values" />
+  </insert>
+  <insert id="batchSave">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_save_columns" /><include refid="sql_save_values" />
+	</foreach>
+  </insert>
+  <sql id="sql_update">
+    update system_upload_type
+ <set> 
+      <if test="null != item.title">title = #{item.title},</if>
+      <if test="null != item.isdelete">isDelete = #{item.isdelete},</if>
+      <if test="null != item.createtime">createTime = #{item.createtime},</if>
+</set>	where uploadTypeId = #{item.uploadtypeid}
+  </sql>
+  <update id="update">
+    <include refid="sql_update" />
+  </update>
+  <update id="batchUpdate">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_update" />
+	</foreach>
+  </update>
+  <delete id="delArray">
+    delete from system_upload_type where uploadTypeId in
+	<foreach collection="array" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delList">
+    delete from system_upload_type where uploadTypeId in
+	<foreach collection="list" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delByCondition">
+     update system_upload_type set isDelete=1 <include refid="sql_where" />
+  </delete>
+  <delete id="delById">
+     update system_upload_type set isDelete=1  where uploadTypeId =#{id} 
+  </delete>
+</mapper>

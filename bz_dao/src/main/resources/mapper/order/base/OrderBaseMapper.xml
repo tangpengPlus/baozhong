@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bz.dao.mapper.order.OrderBaseMapper">
+  <resultMap id="BaseResultMap" type="com.bz.dao.pojo.order.OrderBase">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="orderNo" jdbcType="VARCHAR" property="orderno" />
+    <result column="userId" jdbcType="INTEGER" property="userid" />
+    <result column="shopId" jdbcType="INTEGER" property="shopid" />
+    <result column="tatolMoney" jdbcType="DECIMAL" property="tatolmoney" />
+    <result column="onlinePayMoney" jdbcType="DECIMAL" property="onlinepaymoney" />
+    <result column="offlinePayMoney" jdbcType="DECIMAL" property="offlinepaymoney" />
+    <result column="activityPayMoney" jdbcType="DECIMAL" property="activitypaymoney" />
+    <result column="integralPayMoney" jdbcType="DECIMAL" property="integralpaymoney" />
+    <result column="payState" jdbcType="INTEGER" property="paystate" />
+    <result column="payWay" jdbcType="INTEGER" property="payway" />
+    <result column="callBackTime" jdbcType="TIMESTAMP" property="callbacktime" />
+    <result column="payRemark" jdbcType="VARCHAR" property="payremark" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="isShow" jdbcType="INTEGER" property="isshow" />
+    <result column="orderType" jdbcType="INTEGER" property="ordertype" />
+    <result column="qrCodeLink" jdbcType="VARCHAR" property="qrcodelink" />
+    <result column="clientIp" jdbcType="VARCHAR" property="clientip" />
+    <result column="signStr" jdbcType="VARCHAR" property="signstr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, orderNo, userId, shopId, tatolMoney, onlinePayMoney, offlinePayMoney, activityPayMoney, 
+    integralPayMoney, payState, payWay, callBackTime, payRemark, createTime, isShow, 
+    orderType, qrCodeLink, clientIp, signStr
+  </sql>
+  <insert id="insertSelective" parameterType="com.bz.dao.pojo.order.OrderBase">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into order_base
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderno != null">
+        orderNo,
+      </if>
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="shopid != null">
+        shopId,
+      </if>
+      <if test="tatolmoney != null">
+        tatolMoney,
+      </if>
+      <if test="onlinepaymoney != null">
+        onlinePayMoney,
+      </if>
+      <if test="offlinepaymoney != null">
+        offlinePayMoney,
+      </if>
+      <if test="activitypaymoney != null">
+        activityPayMoney,
+      </if>
+      <if test="integralpaymoney != null">
+        integralPayMoney,
+      </if>
+      <if test="paystate != null">
+        payState,
+      </if>
+      <if test="payway != null">
+        payWay,
+      </if>
+      <if test="callbacktime != null">
+        callBackTime,
+      </if>
+      <if test="payremark != null">
+        payRemark,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="isshow != null">
+        isShow,
+      </if>
+      <if test="ordertype != null">
+        orderType,
+      </if>
+      <if test="qrcodelink != null">
+        qrCodeLink,
+      </if>
+      <if test="clientip != null">
+        clientIp,
+      </if>
+      <if test="signstr != null">
+        signStr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderno != null">
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="shopid != null">
+        #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="tatolmoney != null">
+        #{tatolmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="onlinepaymoney != null">
+        #{onlinepaymoney,jdbcType=DECIMAL},
+      </if>
+      <if test="offlinepaymoney != null">
+        #{offlinepaymoney,jdbcType=DECIMAL},
+      </if>
+      <if test="activitypaymoney != null">
+        #{activitypaymoney,jdbcType=DECIMAL},
+      </if>
+      <if test="integralpaymoney != null">
+        #{integralpaymoney,jdbcType=DECIMAL},
+      </if>
+      <if test="paystate != null">
+        #{paystate,jdbcType=INTEGER},
+      </if>
+      <if test="payway != null">
+        #{payway,jdbcType=INTEGER},
+      </if>
+      <if test="callbacktime != null">
+        #{callbacktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payremark != null">
+        #{payremark,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isshow != null">
+        #{isshow,jdbcType=INTEGER},
+      </if>
+      <if test="ordertype != null">
+        #{ordertype,jdbcType=INTEGER},
+      </if>
+      <if test="qrcodelink != null">
+        #{qrcodelink,jdbcType=VARCHAR},
+      </if>
+      <if test="clientip != null">
+        #{clientip,jdbcType=VARCHAR},
+      </if>
+      <if test="signstr != null">
+        #{signstr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bz.dao.pojo.order.OrderBase">
+    update order_base
+    <set>
+      <if test="orderno != null">
+        orderNo = #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="shopid != null">
+        shopId = #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="tatolmoney != null">
+        tatolMoney = #{tatolmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="onlinepaymoney != null">
+        onlinePayMoney = #{onlinepaymoney,jdbcType=DECIMAL},
+      </if>
+      <if test="offlinepaymoney != null">
+        offlinePayMoney = #{offlinepaymoney,jdbcType=DECIMAL},
+      </if>
+      <if test="activitypaymoney != null">
+        activityPayMoney = #{activitypaymoney,jdbcType=DECIMAL},
+      </if>
+      <if test="integralpaymoney != null">
+        integralPayMoney = #{integralpaymoney,jdbcType=DECIMAL},
+      </if>
+      <if test="paystate != null">
+        payState = #{paystate,jdbcType=INTEGER},
+      </if>
+      <if test="payway != null">
+        payWay = #{payway,jdbcType=INTEGER},
+      </if>
+      <if test="callbacktime != null">
+        callBackTime = #{callbacktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payremark != null">
+        payRemark = #{payremark,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isshow != null">
+        isShow = #{isshow,jdbcType=INTEGER},
+      </if>
+      <if test="ordertype != null">
+        orderType = #{ordertype,jdbcType=INTEGER},
+      </if>
+      <if test="qrcodelink != null">
+        qrCodeLink = #{qrcodelink,jdbcType=VARCHAR},
+      </if>
+      <if test="clientip != null">
+        clientIp = #{clientip,jdbcType=VARCHAR},
+      </if>
+      <if test="signstr != null">
+        signStr = #{signstr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <sql id="sql_columns">
+    id,orderNo,userId,shopId,tatolMoney,onlinePayMoney,offlinePayMoney,activityPayMoney,integralPayMoney,payState,payWay,callBackTime,payRemark,createTime,isShow,orderType,qrCodeLink,clientIp,signStr
+  </sql>
+  <sql id="sql_where">
+    <if test="item !=null "> 
+ <where>
+      <if test="null != item.id">and id = #{item.id}</if>
+      <if test="null != item.orderno and '' != item.orderno">and orderNo = #{item.orderno}</if>
+      <if test="null != item.userid">and userId = #{item.userid}</if>
+      <if test="null != item.shopid">and shopId = #{item.shopid}</if>
+      <if test="null != item.tatolmoney and '' != item.tatolmoney">and tatolMoney = #{item.tatolmoney}</if>
+      <if test="null != item.onlinepaymoney and '' != item.onlinepaymoney">and onlinePayMoney = #{item.onlinepaymoney}</if>
+      <if test="null != item.offlinepaymoney and '' != item.offlinepaymoney">and offlinePayMoney = #{item.offlinepaymoney}</if>
+      <if test="null != item.activitypaymoney and '' != item.activitypaymoney">and activityPayMoney = #{item.activitypaymoney}</if>
+      <if test="null != item.integralpaymoney and '' != item.integralpaymoney">and integralPayMoney = #{item.integralpaymoney}</if>
+      <if test="null != item.paystate">and payState = #{item.paystate}</if>
+      <if test="null != item.payway">and payWay = #{item.payway}</if>
+      <if test="null != item.callbacktime and '' != item.callbacktime">and callBackTime = #{item.callbacktime}</if>
+      <if test="null != item.payremark and '' != item.payremark">and payRemark = #{item.payremark}</if>
+      <if test="null != item.createtime and '' != item.createtime">and createTime = #{item.createtime}</if>
+      <if test="null != item.isshow">and isShow = #{item.isshow}</if>
+      <if test="null != item.ordertype">and orderType = #{item.ordertype}</if>
+      <if test="null != item.qrcodelink and '' != item.qrcodelink">and qrCodeLink = #{item.qrcodelink}</if>
+      <if test="null != item.clientip and '' != item.clientip">and clientIp = #{item.clientip}</if>
+      <if test="null != item.signstr and '' != item.signstr">and signStr = #{item.signstr}</if>
+	</where> 
+ </if>
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from order_base where id = #{id}
+  </select>
+  <select id="selectOne" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from order_base <include refid="sql_where" /> limit 1
+  </select>
+  <select id="selectList" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from order_base <include refid="sql_where" />  order by id desc
+  </select>
+  <sql id="sql_save_columns">
+    insert into order_base(
+	  <if test="null != item.orderno"> orderNo</if>
+	  <if test="null != item.userid">, userId</if>
+	  <if test="null != item.shopid">, shopId</if>
+	  <if test="null != item.tatolmoney">, tatolMoney</if>
+	  <if test="null != item.onlinepaymoney">, onlinePayMoney</if>
+	  <if test="null != item.offlinepaymoney">, offlinePayMoney</if>
+	  <if test="null != item.activitypaymoney">, activityPayMoney</if>
+	  <if test="null != item.integralpaymoney">, integralPayMoney</if>
+	  <if test="null != item.paystate">, payState</if>
+	  <if test="null != item.payway">, payWay</if>
+	  <if test="null != item.callbacktime">, callBackTime</if>
+	  <if test="null != item.payremark">, payRemark</if>
+	  <if test="null != item.createtime">, createTime</if>
+	  <if test="null != item.isshow">, isShow</if>
+	  <if test="null != item.ordertype">, orderType</if>
+	  <if test="null != item.qrcodelink">, qrCodeLink</if>
+	  <if test="null != item.clientip">, clientIp</if>
+	  <if test="null != item.signstr">, signStr</if>
+	) values
+  </sql>
+  <sql id="sql_save_values">
+    (
+	  <if test="null != item.orderno"> #{item.orderno}</if>
+	  <if test="null != item.userid">, #{item.userid}</if>
+	  <if test="null != item.shopid">, #{item.shopid}</if>
+	  <if test="null != item.tatolmoney">, #{item.tatolmoney}</if>
+	  <if test="null != item.onlinepaymoney">, #{item.onlinepaymoney}</if>
+	  <if test="null != item.offlinepaymoney">, #{item.offlinepaymoney}</if>
+	  <if test="null != item.activitypaymoney">, #{item.activitypaymoney}</if>
+	  <if test="null != item.integralpaymoney">, #{item.integralpaymoney}</if>
+	  <if test="null != item.paystate">, #{item.paystate}</if>
+	  <if test="null != item.payway">, #{item.payway}</if>
+	  <if test="null != item.callbacktime">, #{item.callbacktime}</if>
+	  <if test="null != item.payremark">, #{item.payremark}</if>
+	  <if test="null != item.createtime">, #{item.createtime}</if>
+	  <if test="null != item.isshow">, #{item.isshow}</if>
+	  <if test="null != item.ordertype">, #{item.ordertype}</if>
+	  <if test="null != item.qrcodelink">, #{item.qrcodelink}</if>
+	  <if test="null != item.clientip">, #{item.clientip}</if>
+	  <if test="null != item.signstr">, #{item.signstr}</if>
+	)
+  </sql>
+  <insert id="save" keyProperty="item.id" useGeneratedKeys="true">
+    <include refid="sql_save_columns" /><include refid="sql_save_values" />
+  </insert>
+  <insert id="batchSave">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_save_columns" /><include refid="sql_save_values" />
+	</foreach>
+  </insert>
+  <sql id="sql_update">
+    update order_base
+ <set> 
+      <if test="null != item.orderno">orderNo = #{item.orderno},</if>
+      <if test="null != item.userid">userId = #{item.userid},</if>
+      <if test="null != item.shopid">shopId = #{item.shopid},</if>
+      <if test="null != item.tatolmoney">tatolMoney = #{item.tatolmoney},</if>
+      <if test="null != item.onlinepaymoney">onlinePayMoney = #{item.onlinepaymoney},</if>
+      <if test="null != item.offlinepaymoney">offlinePayMoney = #{item.offlinepaymoney},</if>
+      <if test="null != item.activitypaymoney">activityPayMoney = #{item.activitypaymoney},</if>
+      <if test="null != item.integralpaymoney">integralPayMoney = #{item.integralpaymoney},</if>
+      <if test="null != item.paystate">payState = #{item.paystate},</if>
+      <if test="null != item.payway">payWay = #{item.payway},</if>
+      <if test="null != item.callbacktime">callBackTime = #{item.callbacktime},</if>
+      <if test="null != item.payremark">payRemark = #{item.payremark},</if>
+      <if test="null != item.createtime">createTime = #{item.createtime},</if>
+      <if test="null != item.isshow">isShow = #{item.isshow},</if>
+      <if test="null != item.ordertype">orderType = #{item.ordertype},</if>
+      <if test="null != item.qrcodelink">qrCodeLink = #{item.qrcodelink},</if>
+      <if test="null != item.clientip">clientIp = #{item.clientip},</if>
+      <if test="null != item.signstr">signStr = #{item.signstr},</if>
+</set>	where id = #{item.id}
+  </sql>
+  <update id="update">
+    <include refid="sql_update" />
+  </update>
+  <!-- 更新超时订单 -->
+  <update id="updateTimeOutOrder">
+  update order_base set payState=1002 where payState=1001 and (unix_timestamp(NOW())-unix_timestamp(createTime))>#{timeInterval}
+  </update>
+  <update id="batchUpdate">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_update" />
+	</foreach>
+  </update>
+  <delete id="delArray">
+    delete from order_base where id in
+	<foreach collection="array" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delList">
+    delete from order_base where id in
+	<foreach collection="list" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delByCondition">
+     update order_base set isDelete=1 <include refid="sql_where" />
+  </delete>
+  <delete id="delById">
+     update order_base set isDelete=1  where id =#{id} 
+  </delete>
+</mapper>

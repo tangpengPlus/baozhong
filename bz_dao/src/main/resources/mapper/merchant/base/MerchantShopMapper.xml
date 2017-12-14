@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bz.dao.mapper.merchant.MerchantShopMapper">
+  <resultMap id="BaseResultMap" type="com.bz.dao.pojo.merchant.MerchantShop">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="licenseImage" jdbcType="VARCHAR" property="licenseimage" />
+    <result column="provinceLeveCode" jdbcType="VARCHAR" property="provincelevecode" />
+    <result column="cityLeveCode" jdbcType="VARCHAR" property="citylevecode" />
+    <result column="regionLeveCode" jdbcType="VARCHAR" property="regionlevecode" />
+    <result column="detailAddress" jdbcType="VARCHAR" property="detailaddress" />
+    <result column="coordinate" jdbcType="VARCHAR" property="coordinate" />
+    <result column="bankName" jdbcType="VARCHAR" property="bankname" />
+    <result column="bankCard" jdbcType="VARCHAR" property="bankcard" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="weChatOpenId" jdbcType="VARCHAR" property="wechatopenid" />
+    <result column="belongMerchantId" jdbcType="INTEGER" property="belongmerchantid" />
+    <result column="isVerify" jdbcType="INTEGER" property="isverify" />
+    <result column="onlineState" jdbcType="INTEGER" property="onlinestate" />
+    <result column="verifyRemark" jdbcType="VARCHAR" property="verifyremark" />
+    <result column="verifyAdmin" jdbcType="INTEGER" property="verifyadmin" />
+    <result column="verifyTime" jdbcType="TIMESTAMP" property="verifytime" />
+    <result column="shopFacadeImage" jdbcType="VARCHAR" property="shopfacadeimage" />
+    <result column="shopDetailImage" jdbcType="VARCHAR" property="shopdetailimage" />
+    <result column="industryParent" jdbcType="INTEGER" property="industryparent" />
+    <result column="industrySubclass" jdbcType="INTEGER" property="industrysubclass" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="isDelete" jdbcType="INTEGER" property="isdelete" />
+    <result column="cooperationType" jdbcType="INTEGER" property="cooperationtype" />
+    <result column="frontidcardimg" jdbcType="VARCHAR" property="frontidcardimg" />
+    <result column="backidcardimg" jdbcType="VARCHAR" property="backidcardimg" />
+    <result column="bustimg" jdbcType="VARCHAR" property="bustimg" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, number, name, licenseImage, provinceLeveCode, cityLeveCode, regionLeveCode, detailAddress, 
+    coordinate, bankName, bankCard, phone, weChatOpenId, belongMerchantId, isVerify, 
+    onlineState, verifyRemark, verifyAdmin, verifyTime, shopFacadeImage, shopDetailImage, 
+    industryParent, industrySubclass, createTime, isDelete, cooperationType, frontidcardimg, 
+    backidcardimg, bustimg
+  </sql>
+  <insert id="insertSelective" parameterType="com.bz.dao.pojo.merchant.MerchantShop">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into merchant_shop
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="number != null">
+        number,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="licenseimage != null">
+        licenseImage,
+      </if>
+      <if test="provincelevecode != null">
+        provinceLeveCode,
+      </if>
+      <if test="citylevecode != null">
+        cityLeveCode,
+      </if>
+      <if test="regionlevecode != null">
+        regionLeveCode,
+      </if>
+      <if test="detailaddress != null">
+        detailAddress,
+      </if>
+      <if test="coordinate != null">
+        coordinate,
+      </if>
+      <if test="bankname != null">
+        bankName,
+      </if>
+      <if test="bankcard != null">
+        bankCard,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="wechatopenid != null">
+        weChatOpenId,
+      </if>
+      <if test="belongmerchantid != null">
+        belongMerchantId,
+      </if>
+      <if test="isverify != null">
+        isVerify,
+      </if>
+      <if test="onlinestate != null">
+        onlineState,
+      </if>
+      <if test="verifyremark != null">
+        verifyRemark,
+      </if>
+      <if test="verifyadmin != null">
+        verifyAdmin,
+      </if>
+      <if test="verifytime != null">
+        verifyTime,
+      </if>
+      <if test="shopfacadeimage != null">
+        shopFacadeImage,
+      </if>
+      <if test="shopdetailimage != null">
+        shopDetailImage,
+      </if>
+      <if test="industryparent != null">
+        industryParent,
+      </if>
+      <if test="industrysubclass != null">
+        industrySubclass,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="isdelete != null">
+        isDelete,
+      </if>
+      <if test="cooperationtype != null">
+        cooperationType,
+      </if>
+      <if test="frontidcardimg != null">
+        frontidcardimg,
+      </if>
+      <if test="backidcardimg != null">
+        backidcardimg,
+      </if>
+      <if test="bustimg != null">
+        bustimg,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseimage != null">
+        #{licenseimage,jdbcType=VARCHAR},
+      </if>
+      <if test="provincelevecode != null">
+        #{provincelevecode,jdbcType=VARCHAR},
+      </if>
+      <if test="citylevecode != null">
+        #{citylevecode,jdbcType=VARCHAR},
+      </if>
+      <if test="regionlevecode != null">
+        #{regionlevecode,jdbcType=VARCHAR},
+      </if>
+      <if test="detailaddress != null">
+        #{detailaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="coordinate != null">
+        #{coordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="bankname != null">
+        #{bankname,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcard != null">
+        #{bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatopenid != null">
+        #{wechatopenid,jdbcType=VARCHAR},
+      </if>
+      <if test="belongmerchantid != null">
+        #{belongmerchantid,jdbcType=INTEGER},
+      </if>
+      <if test="isverify != null">
+        #{isverify,jdbcType=INTEGER},
+      </if>
+      <if test="onlinestate != null">
+        #{onlinestate,jdbcType=INTEGER},
+      </if>
+      <if test="verifyremark != null">
+        #{verifyremark,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyadmin != null">
+        #{verifyadmin,jdbcType=INTEGER},
+      </if>
+      <if test="verifytime != null">
+        #{verifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shopfacadeimage != null">
+        #{shopfacadeimage,jdbcType=VARCHAR},
+      </if>
+      <if test="shopdetailimage != null">
+        #{shopdetailimage,jdbcType=VARCHAR},
+      </if>
+      <if test="industryparent != null">
+        #{industryparent,jdbcType=INTEGER},
+      </if>
+      <if test="industrysubclass != null">
+        #{industrysubclass,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=INTEGER},
+      </if>
+      <if test="cooperationtype != null">
+        #{cooperationtype,jdbcType=INTEGER},
+      </if>
+      <if test="frontidcardimg != null">
+        #{frontidcardimg,jdbcType=VARCHAR},
+      </if>
+      <if test="backidcardimg != null">
+        #{backidcardimg,jdbcType=VARCHAR},
+      </if>
+      <if test="bustimg != null">
+        #{bustimg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bz.dao.pojo.merchant.MerchantShop">
+    update merchant_shop
+    <set>
+      <if test="number != null">
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseimage != null">
+        licenseImage = #{licenseimage,jdbcType=VARCHAR},
+      </if>
+      <if test="provincelevecode != null">
+        provinceLeveCode = #{provincelevecode,jdbcType=VARCHAR},
+      </if>
+      <if test="citylevecode != null">
+        cityLeveCode = #{citylevecode,jdbcType=VARCHAR},
+      </if>
+      <if test="regionlevecode != null">
+        regionLeveCode = #{regionlevecode,jdbcType=VARCHAR},
+      </if>
+      <if test="detailaddress != null">
+        detailAddress = #{detailaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="coordinate != null">
+        coordinate = #{coordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="bankname != null">
+        bankName = #{bankname,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcard != null">
+        bankCard = #{bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatopenid != null">
+        weChatOpenId = #{wechatopenid,jdbcType=VARCHAR},
+      </if>
+      <if test="belongmerchantid != null">
+        belongMerchantId = #{belongmerchantid,jdbcType=INTEGER},
+      </if>
+      <if test="isverify != null">
+        isVerify = #{isverify,jdbcType=INTEGER},
+      </if>
+      <if test="onlinestate != null">
+        onlineState = #{onlinestate,jdbcType=INTEGER},
+      </if>
+      <if test="verifyremark != null">
+        verifyRemark = #{verifyremark,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyadmin != null">
+        verifyAdmin = #{verifyadmin,jdbcType=INTEGER},
+      </if>
+      <if test="verifytime != null">
+        verifyTime = #{verifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shopfacadeimage != null">
+        shopFacadeImage = #{shopfacadeimage,jdbcType=VARCHAR},
+      </if>
+      <if test="shopdetailimage != null">
+        shopDetailImage = #{shopdetailimage,jdbcType=VARCHAR},
+      </if>
+      <if test="industryparent != null">
+        industryParent = #{industryparent,jdbcType=INTEGER},
+      </if>
+      <if test="industrysubclass != null">
+        industrySubclass = #{industrysubclass,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdelete != null">
+        isDelete = #{isdelete,jdbcType=INTEGER},
+      </if>
+      <if test="cooperationtype != null">
+        cooperationType = #{cooperationtype,jdbcType=INTEGER},
+      </if>
+      <if test="frontidcardimg != null">
+        frontidcardimg = #{frontidcardimg,jdbcType=VARCHAR},
+      </if>
+      <if test="backidcardimg != null">
+        backidcardimg = #{backidcardimg,jdbcType=VARCHAR},
+      </if>
+      <if test="bustimg != null">
+        bustimg = #{bustimg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <sql id="sql_columns">
+    id,number,name,licenseImage,provinceLeveCode,cityLeveCode,regionLeveCode,detailAddress,coordinate,bankName,bankCard,phone,weChatOpenId,belongMerchantId,isVerify,onlineState,verifyRemark,verifyAdmin,verifyTime,shopFacadeImage,shopDetailImage,industryParent,industrySubclass,createTime,isDelete,cooperationType,frontidcardimg,backidcardimg,bustimg
+  </sql>
+  <sql id="sql_where">
+    <if test="item !=null "> 
+ <where>
+      <if test="null != item.id">and id = #{item.id}</if>
+      <if test="null != item.number and '' != item.number">and number = #{item.number}</if>
+      <if test="null != item.name and '' != item.name">and name = #{item.name}</if>
+      <if test="null != item.licenseimage and '' != item.licenseimage">and licenseImage = #{item.licenseimage}</if>
+      <if test="null != item.provincelevecode and '' != item.provincelevecode">and provinceLeveCode = #{item.provincelevecode}</if>
+      <if test="null != item.citylevecode and '' != item.citylevecode">and cityLeveCode = #{item.citylevecode}</if>
+      <if test="null != item.regionlevecode and '' != item.regionlevecode">and regionLeveCode = #{item.regionlevecode}</if>
+      <if test="null != item.detailaddress and '' != item.detailaddress">and detailAddress = #{item.detailaddress}</if>
+      <if test="null != item.coordinate and '' != item.coordinate">and coordinate = #{item.coordinate}</if>
+      <if test="null != item.bankname and '' != item.bankname">and bankName = #{item.bankname}</if>
+      <if test="null != item.bankcard and '' != item.bankcard">and bankCard = #{item.bankcard}</if>
+      <if test="null != item.phone and '' != item.phone">and phone = #{item.phone}</if>
+      <if test="null != item.wechatopenid and '' != item.wechatopenid">and weChatOpenId = #{item.wechatopenid}</if>
+      <if test="null != item.belongmerchantid">and belongMerchantId = #{item.belongmerchantid}</if>
+      <if test="null != item.isverify">and isVerify = #{item.isverify}</if>
+      <if test="null != item.onlinestate">and onlineState = #{item.onlinestate}</if>
+      <if test="null != item.verifyremark and '' != item.verifyremark">and verifyRemark = #{item.verifyremark}</if>
+      <if test="null != item.verifyadmin">and verifyAdmin = #{item.verifyadmin}</if>
+      <if test="null != item.verifytime and '' != item.verifytime">and verifyTime = #{item.verifytime}</if>
+      <if test="null != item.shopfacadeimage and '' != item.shopfacadeimage">and shopFacadeImage = #{item.shopfacadeimage}</if>
+      <if test="null != item.shopdetailimage and '' != item.shopdetailimage">and shopDetailImage = #{item.shopdetailimage}</if>
+      <if test="null != item.industryparent">and industryParent = #{item.industryparent}</if>
+      <if test="null != item.industrysubclass">and industrySubclass = #{item.industrysubclass}</if>
+      <if test="null != item.createtime and '' != item.createtime">and createTime = #{item.createtime}</if>
+      <if test="null != item.isdelete">and isDelete = #{item.isdelete}</if>
+      <if test="null != item.cooperationtype">and cooperationType = #{item.cooperationtype}</if>
+      <if test="null != item.frontidcardimg and '' != item.frontidcardimg">and frontidcardimg = #{item.frontidcardimg}</if>
+      <if test="null != item.backidcardimg and '' != item.backidcardimg">and backidcardimg = #{item.backidcardimg}</if>
+      <if test="null != item.bustimg and '' != item.bustimg">and bustimg = #{item.bustimg}</if>
+	</where> 
+ </if>
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from merchant_shop where id = #{id}
+  </select>
+  <select id="selectOne" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from merchant_shop <include refid="sql_where" /> limit 1
+  </select>
+  <select id="selectList" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from merchant_shop <include refid="sql_where" />  order by id desc
+  </select>
+  <sql id="sql_save_columns">
+    insert into merchant_shop(
+	  <if test="null != item.number"> number</if>
+	  <if test="null != item.name">, name</if>
+	  <if test="null != item.licenseimage">, licenseImage</if>
+	  <if test="null != item.provincelevecode">, provinceLeveCode</if>
+	  <if test="null != item.citylevecode">, cityLeveCode</if>
+	  <if test="null != item.regionlevecode">, regionLeveCode</if>
+	  <if test="null != item.detailaddress">, detailAddress</if>
+	  <if test="null != item.coordinate">, coordinate</if>
+	  <if test="null != item.bankname">, bankName</if>
+	  <if test="null != item.bankcard">, bankCard</if>
+	  <if test="null != item.phone">, phone</if>
+	  <if test="null != item.wechatopenid">, weChatOpenId</if>
+	  <if test="null != item.belongmerchantid">, belongMerchantId</if>
+	  <if test="null != item.isverify">, isVerify</if>
+	  <if test="null != item.onlinestate">, onlineState</if>
+	  <if test="null != item.verifyremark">, verifyRemark</if>
+	  <if test="null != item.verifyadmin">, verifyAdmin</if>
+	  <if test="null != item.verifytime">, verifyTime</if>
+	  <if test="null != item.shopfacadeimage">, shopFacadeImage</if>
+	  <if test="null != item.shopdetailimage">, shopDetailImage</if>
+	  <if test="null != item.industryparent">, industryParent</if>
+	  <if test="null != item.industrysubclass">, industrySubclass</if>
+	  <if test="null != item.createtime">, createTime</if>
+	  <if test="null != item.isdelete">, isDelete</if>
+	  <if test="null != item.cooperationtype">, cooperationType</if>
+	  <if test="null != item.frontidcardimg">, frontidcardimg</if>
+	  <if test="null != item.backidcardimg">, backidcardimg</if>
+	  <if test="null != item.bustimg">, bustimg</if>
+	) values
+  </sql>
+  <sql id="sql_save_values">
+    (
+	  <if test="null != item.number"> #{item.number}</if>
+	  <if test="null != item.name">, #{item.name}</if>
+	  <if test="null != item.licenseimage">, #{item.licenseimage}</if>
+	  <if test="null != item.provincelevecode">, #{item.provincelevecode}</if>
+	  <if test="null != item.citylevecode">, #{item.citylevecode}</if>
+	  <if test="null != item.regionlevecode">, #{item.regionlevecode}</if>
+	  <if test="null != item.detailaddress">, #{item.detailaddress}</if>
+	  <if test="null != item.coordinate">, #{item.coordinate}</if>
+	  <if test="null != item.bankname">, #{item.bankname}</if>
+	  <if test="null != item.bankcard">, #{item.bankcard}</if>
+	  <if test="null != item.phone">, #{item.phone}</if>
+	  <if test="null != item.wechatopenid">, #{item.wechatopenid}</if>
+	  <if test="null != item.belongmerchantid">, #{item.belongmerchantid}</if>
+	  <if test="null != item.isverify">, #{item.isverify}</if>
+	  <if test="null != item.onlinestate">, #{item.onlinestate}</if>
+	  <if test="null != item.verifyremark">, #{item.verifyremark}</if>
+	  <if test="null != item.verifyadmin">, #{item.verifyadmin}</if>
+	  <if test="null != item.verifytime">, #{item.verifytime}</if>
+	  <if test="null != item.shopfacadeimage">, #{item.shopfacadeimage}</if>
+	  <if test="null != item.shopdetailimage">, #{item.shopdetailimage}</if>
+	  <if test="null != item.industryparent">, #{item.industryparent}</if>
+	  <if test="null != item.industrysubclass">, #{item.industrysubclass}</if>
+	  <if test="null != item.createtime">, #{item.createtime}</if>
+	  <if test="null != item.isdelete">, #{item.isdelete}</if>
+	  <if test="null != item.cooperationtype">, #{item.cooperationtype}</if>
+	  <if test="null != item.frontidcardimg">, #{item.frontidcardimg}</if>
+	  <if test="null != item.backidcardimg">, #{item.backidcardimg}</if>
+	  <if test="null != item.bustimg">, #{item.bustimg}</if>
+	)
+  </sql>
+  <insert id="save" keyProperty="item.id" useGeneratedKeys="true">
+    <include refid="sql_save_columns" /><include refid="sql_save_values" />
+  </insert>
+  <insert id="batchSave">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_save_columns" /><include refid="sql_save_values" />
+	</foreach>
+  </insert>
+  <sql id="sql_update">
+    update merchant_shop
+ <set> 
+      <if test="null != item.number">number = #{item.number},</if>
+      <if test="null != item.name">name = #{item.name},</if>
+      <if test="null != item.licenseimage">licenseImage = #{item.licenseimage},</if>
+      <if test="null != item.provincelevecode">provinceLeveCode = #{item.provincelevecode},</if>
+      <if test="null != item.citylevecode">cityLeveCode = #{item.citylevecode},</if>
+      <if test="null != item.regionlevecode">regionLeveCode = #{item.regionlevecode},</if>
+      <if test="null != item.detailaddress">detailAddress = #{item.detailaddress},</if>
+      <if test="null != item.coordinate">coordinate = #{item.coordinate},</if>
+      <if test="null != item.bankname">bankName = #{item.bankname},</if>
+      <if test="null != item.bankcard">bankCard = #{item.bankcard},</if>
+      <if test="null != item.phone">phone = #{item.phone},</if>
+      <if test="null != item.wechatopenid">weChatOpenId = #{item.wechatopenid},</if>
+      <if test="null != item.belongmerchantid">belongMerchantId = #{item.belongmerchantid},</if>
+      <if test="null != item.isverify">isVerify = #{item.isverify},</if>
+      <if test="null != item.onlinestate">onlineState = #{item.onlinestate},</if>
+      <if test="null != item.verifyremark">verifyRemark = #{item.verifyremark},</if>
+      <if test="null != item.verifyadmin">verifyAdmin = #{item.verifyadmin},</if>
+      <if test="null != item.verifytime">verifyTime = #{item.verifytime},</if>
+      <if test="null != item.shopfacadeimage">shopFacadeImage = #{item.shopfacadeimage},</if>
+      <if test="null != item.shopdetailimage">shopDetailImage = #{item.shopdetailimage},</if>
+      <if test="null != item.industryparent">industryParent = #{item.industryparent},</if>
+      <if test="null != item.industrysubclass">industrySubclass = #{item.industrysubclass},</if>
+      <if test="null != item.createtime">createTime = #{item.createtime},</if>
+      <if test="null != item.isdelete">isDelete = #{item.isdelete},</if>
+      <if test="null != item.cooperationtype">cooperationType = #{item.cooperationtype},</if>
+      <if test="null != item.frontidcardimg">frontidcardimg = #{item.frontidcardimg},</if>
+      <if test="null != item.backidcardimg">backidcardimg = #{item.backidcardimg},</if>
+      <if test="null != item.bustimg">bustimg = #{item.bustimg},</if>
+</set>	where id = #{item.id}
+  </sql>
+  <update id="update">
+    <include refid="sql_update" />
+  </update>
+  <update id="batchUpdate">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_update" />
+	</foreach>
+  </update>
+  <delete id="delArray">
+    delete from merchant_shop where id in
+	<foreach collection="array" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delList">
+    delete from merchant_shop where id in
+	<foreach collection="list" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delByCondition">
+     update merchant_shop set isDelete=1 <include refid="sql_where" />
+  </delete>
+  <delete id="delById">
+     update merchant_shop set isDelete=1  where id =#{id} 
+  </delete>
+  
+  <!-- 自定义sql -->
+  <sql id="sql_where_condition">
+    <if test="cond !=null "> 
+ 	  <where>
+      	<if test="null != cond.name and '' != cond.name">and name like "%${cond.name}%"</if>
+      	<if test="null != cond.provincelevecode and '' != cond.provincelevecode">and provinceLeveCode = #{cond.provincelevecode}</if>
+      	<if test="null != cond.citylevecode and '' != cond.citylevecode">and cityLeveCode = #{cond.citylevecode}</if>
+      	<if test="null != cond.regionlevecode and '' != cond.regionlevecode">and regionLeveCode = #{cond.regionlevecode}</if>
+		</where> 
+ 	</if>
+  </sql>
+  <select id="getMerchantInfoByCondition" resultMap="BaseResultMap" >
+  	select <include refid="sql_columns" /> from merchant_shop <include refid="sql_where_condition" />
+  </select>
+</mapper>

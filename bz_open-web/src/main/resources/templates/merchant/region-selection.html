@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>店铺申请</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,shrink-to-fit=no">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta name="author" content="pkuny520,pkuny520@163.com"/>
+    <meta name="copyright" content="Baozho Inc. All Rights Reserved"/>
+    <meta name="keywords" content="宝众商城，店铺，申请，设置">
+    <meta name="description" content="宝众商城店铺申请设置">
+    <script type="text/javascript" src="${base}/js/store/reset.js"></script>
+    <link type="text/css" rel="stylesheet" href="${base}/css/store/store-apply.debug.css" />
+</head>
+
+<body>
+<div class="container">
+    <ul id="selected">
+        <li class="row" v-if="selectList[1]" @click="historySelect(1)"> {{ selectList[1].name }} </li>
+        <li class="row" v-if="selectList[2]" @click="historySelect(2)"> {{ selectList[2].name  }} </li>
+        <li class="row" v-if="selectList[3]" @click="historySelect(3)"> {{ selectList[3].name  }} </li>
+    </ul>
+    <ul id="forselect">
+        <li class="row"  v-for="(value,key) in citylist">
+            <span  @click="getlist(value.id,value.name)">  {{ value.name }} </span>
+        </li>
+    </ul>
+</div>
+
+<script src="${base}/store/jquery.js"></script>
+<script src="${base}/store/vue.min.js"></script>
+<script src="${base}/store/region-selection.debug.js"></script>
+</body>
+</html>

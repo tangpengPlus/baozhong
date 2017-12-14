@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bz.dao.mapper.upload.UploadFileInfoMapper">
+  <resultMap id="BaseResultMap" type="com.bz.dao.pojo.upload.UploadFileInfo">
+    <id column="uploadFileId" jdbcType="BIGINT" property="uploadfileid" />
+    <result column="uploadTypeId" jdbcType="VARCHAR" property="uploadtypeid" />
+    <result column="serverUrl" jdbcType="VARCHAR" property="serverurl" />
+    <result column="baseFileUrl" jdbcType="VARCHAR" property="basefileurl" />
+    <result column="size" jdbcType="BIGINT" property="size" />
+    <result column="extName" jdbcType="VARCHAR" property="extname" />
+    <result column="isDelete" jdbcType="TINYINT" property="isdelete" />
+    <result column="lastReadTime" jdbcType="INTEGER" property="lastreadtime" />
+    <result column="apiClientNo" jdbcType="VARCHAR" property="apiclientno" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uploadFileId, uploadTypeId, serverUrl, baseFileUrl, size, extName, isDelete, lastReadTime, 
+    apiClientNo, createTime
+  </sql>
+  <insert id="insertSelective" parameterType="com.bz.dao.pojo.upload.UploadFileInfo">
+    insert into system_upload_file_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uploadfileid != null">
+        uploadFileId,
+      </if>
+      <if test="uploadtypeid != null">
+        uploadTypeId,
+      </if>
+      <if test="serverurl != null">
+        serverUrl,
+      </if>
+      <if test="basefileurl != null">
+        baseFileUrl,
+      </if>
+      <if test="size != null">
+        size,
+      </if>
+      <if test="extname != null">
+        extName,
+      </if>
+      <if test="isdelete != null">
+        isDelete,
+      </if>
+      <if test="lastreadtime != null">
+        lastReadTime,
+      </if>
+      <if test="apiclientno != null">
+        apiClientNo,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uploadfileid != null">
+        #{uploadfileid,jdbcType=BIGINT},
+      </if>
+      <if test="uploadtypeid != null">
+        #{uploadtypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="serverurl != null">
+        #{serverurl,jdbcType=VARCHAR},
+      </if>
+      <if test="basefileurl != null">
+        #{basefileurl,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null">
+        #{size,jdbcType=BIGINT},
+      </if>
+      <if test="extname != null">
+        #{extname,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=TINYINT},
+      </if>
+      <if test="lastreadtime != null">
+        #{lastreadtime,jdbcType=INTEGER},
+      </if>
+      <if test="apiclientno != null">
+        #{apiclientno,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bz.dao.pojo.upload.UploadFileInfo">
+    update system_upload_file_info
+    <set>
+      <if test="uploadtypeid != null">
+        uploadTypeId = #{uploadtypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="serverurl != null">
+        serverUrl = #{serverurl,jdbcType=VARCHAR},
+      </if>
+      <if test="basefileurl != null">
+        baseFileUrl = #{basefileurl,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null">
+        size = #{size,jdbcType=BIGINT},
+      </if>
+      <if test="extname != null">
+        extName = #{extname,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null">
+        isDelete = #{isdelete,jdbcType=TINYINT},
+      </if>
+      <if test="lastreadtime != null">
+        lastReadTime = #{lastreadtime,jdbcType=INTEGER},
+      </if>
+      <if test="apiclientno != null">
+        apiClientNo = #{apiclientno,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where uploadFileId = #{uploadfileid,jdbcType=BIGINT}
+  </update>
+  <sql id="sql_columns">
+    uploadFileId,uploadTypeId,serverUrl,baseFileUrl,size,extName,isDelete,lastReadTime,apiClientNo,createTime
+  </sql>
+  <sql id="sql_where">
+    <if test="item !=null "> 
+ <where>
+      <if test="null != item.uploadfileid and '' != item.uploadfileid">and uploadFileId = #{item.uploadfileid}</if>
+      <if test="null != item.uploadtypeid and '' != item.uploadtypeid">and uploadTypeId = #{item.uploadtypeid}</if>
+      <if test="null != item.serverurl and '' != item.serverurl">and serverUrl = #{item.serverurl}</if>
+      <if test="null != item.basefileurl and '' != item.basefileurl">and baseFileUrl = #{item.basefileurl}</if>
+      <if test="null != item.size and '' != item.size">and size = #{item.size}</if>
+      <if test="null != item.extname and '' != item.extname">and extName = #{item.extname}</if>
+      <if test="null != item.isdelete and '' != item.isdelete">and isDelete = #{item.isdelete}</if>
+      <if test="null != item.lastreadtime">and lastReadTime = #{item.lastreadtime}</if>
+      <if test="null != item.apiclientno and '' != item.apiclientno">and apiClientNo = #{item.apiclientno}</if>
+      <if test="null != item.createtime and '' != item.createtime">and createTime = #{item.createtime}</if>
+	</where> 
+ </if>
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from system_upload_file_info where uploadFileId = #{uploadfileid}
+  </select>
+  <select id="selectOne" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from system_upload_file_info <include refid="sql_where" /> limit 1
+  </select>
+  <select id="selectList" resultMap="BaseResultMap">
+    select <include refid="sql_columns" /> from system_upload_file_info <include refid="sql_where" />  order by uploadfileid desc
+  </select>
+  <sql id="sql_save_columns">
+    insert into system_upload_file_info(
+	  <if test="null != item.uploadtypeid"> uploadTypeId</if>
+	  <if test="null != item.serverurl">, serverUrl</if>
+	  <if test="null != item.basefileurl">, baseFileUrl</if>
+	  <if test="null != item.size">, size</if>
+	  <if test="null != item.extname">, extName</if>
+	  <if test="null != item.isdelete">, isDelete</if>
+	  <if test="null != item.lastreadtime">, lastReadTime</if>
+	  <if test="null != item.apiclientno">, apiClientNo</if>
+	  <if test="null != item.createtime">, createTime</if>
+	) values
+  </sql>
+  <sql id="sql_save_values">
+    (
+	  <if test="null != item.uploadtypeid"> #{item.uploadtypeid}</if>
+	  <if test="null != item.serverurl">, #{item.serverurl}</if>
+	  <if test="null != item.basefileurl">, #{item.basefileurl}</if>
+	  <if test="null != item.size">, #{item.size}</if>
+	  <if test="null != item.extname">, #{item.extname}</if>
+	  <if test="null != item.isdelete">, #{item.isdelete}</if>
+	  <if test="null != item.lastreadtime">, #{item.lastreadtime}</if>
+	  <if test="null != item.apiclientno">, #{item.apiclientno}</if>
+	  <if test="null != item.createtime">, #{item.createtime}</if>
+	)
+  </sql>
+  <insert id="save" keyProperty="item.uploadfileid" useGeneratedKeys="true">
+    <include refid="sql_save_columns" /><include refid="sql_save_values" />
+  </insert>
+  <insert id="batchSave">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_save_columns" /><include refid="sql_save_values" />
+	</foreach>
+  </insert>
+  <sql id="sql_update">
+    update system_upload_file_info
+ <set> 
+      <if test="null != item.uploadtypeid">uploadTypeId = #{item.uploadtypeid},</if>
+      <if test="null != item.serverurl">serverUrl = #{item.serverurl},</if>
+      <if test="null != item.basefileurl">baseFileUrl = #{item.basefileurl},</if>
+      <if test="null != item.size">size = #{item.size},</if>
+      <if test="null != item.extname">extName = #{item.extname},</if>
+      <if test="null != item.isdelete">isDelete = #{item.isdelete},</if>
+      <if test="null != item.lastreadtime">lastReadTime = #{item.lastreadtime},</if>
+      <if test="null != item.apiclientno">apiClientNo = #{item.apiclientno},</if>
+      <if test="null != item.createtime">createTime = #{item.createtime},</if>
+</set>	where uploadFileId = #{item.uploadfileid}
+  </sql>
+  <update id="update">
+    <include refid="sql_update" />
+  </update>
+  <update id="batchUpdate">
+    <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+	  <include refid="sql_update" />
+	</foreach>
+  </update>
+  <delete id="delArray">
+    delete from system_upload_file_info where uploadFileId in
+	<foreach collection="array" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delList">
+    delete from system_upload_file_info where uploadFileId in
+	<foreach collection="list" index="index" item="item" open="(" separator="," close=")">#{item}</foreach>
+  </delete>
+  <delete id="delByCondition">
+     update system_upload_file_info set isDelete=1 <include refid="sql_where" />
+  </delete>
+  <delete id="delById">
+     update system_upload_file_info set isDelete=1  where uploadFileId =#{id} 
+  </delete>
+</mapper>

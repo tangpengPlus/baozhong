@@ -1,0 +1,87 @@
+server:
+  port: 8008
+  display-name: bz_pay
+  clientNo: BZ00008
+spring:  
+  profiles:  
+    active: test
+################################################测试环境配置#######################################################
+---                                                       
+spring:
+  profiles: test
+  aop:
+    proxy-target-class: true
+###########数据源配置#######################
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.2.202:3306/bz_pay?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&failOverReadOnly=false
+    username: bztest
+    password: bz123456
+#############dubbo配置###########################    
+  dubbo: 
+   application:
+     name: fileService-provider
+   base-package: com.bz.pay.core.service.pay,com.bz.open.core.service  # dubbo服务发布者所在的包
+   registry:
+     address: 192.168.2.202:2181,192.168.2.205:2181                   # zookeeper注册中心的地址
+     port: 2181                           # zookeeper注册中心的端口
+   protocols:
+     - name: dubbo
+       serialization: hessian2
+     - name: hessian 
+   provider:
+     retries: 0                           # 服务调用重试次数，服务发布者不给重试，让服务调用者自己重试
+   consumer:                   # 公用的消费者配置
+      lazy: true                #
+      timeout: 1000             # 可选 性能调优 远程服务调用超时时间(毫秒) 1.0.16以上版本
+      check: false               # 可选 服务治理 启动时检查提供者是否存在，true报错，false忽略 1.0.16以上版本
+################微信支付相关配置###################
+wechat:
+  pay:
+    appId: wxc215e4f757e4bf52
+    mchId: 1392310702
+    mchKey: qwertyuiopasdfghjklzxcvbnm123456
+    subAppId:
+    subMchId:
+    keyPath:
+    notify_url: http://baidui.com
+###############支付宝支付相关配置###################
+sdk:
+  alipay:
+    dev: true #默认false,为true表示使用沙箱环境
+    sign-type: RSA2 #签名算法
+    app-id: 2016080200151885#应用ID
+    notify_url: http://baidui.com
+    private-key: MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCtqmYt
+                 fE5DTNlqQUbwv8NsWD9t6tFQbaiy6hg8iVGsYoZsPmhLOUyR1puxVQPmM
+                 /BeNpPVG1/DUgLy/LB/as3g1M2TwVaqVV1j7u1t8jGQYYOVlg9ehpqrnjb
+                 SKZLnA9lukLrWq3DSWrSMOyeTwfni+yw/wP2J64Mc2ZSD8NZ5SmV8L2KcU
+                 /kGT8WXemJuUzdcriQuQitChV5v26v/4xZ9wvEDwQp+hPi9p3ew3KnRcH1V
+                 ks6nmefQSEOzkYejrCg1LO4k0oKdp2MCvJJ4PdVHhr6OkN1uYqmnngcH4cmm
+                 yBL0R7MO4hSjDgpjlvnowO+mZz1Aw4JFTByePmpf0usrAgMBAAECggEAYPDY
+                 fpV//nNcfcKYffUdelI8fffxBYtg+xZPlyM0Ex0gWjXv8+W1R0dbu35wYcUm
+                 bQDcPr48E4SpHshNIaMV72X6p3rqDMUAD7Okl5X1ctnsIMkWJTbQCfKUOXZ5i
+                 TkN23kwwnoKzXFSjWDL89/4xGpexevN23o6wxT1oT0EC8m+OVuZb8T/CdtNQr
+                 WaH93aFcOePIOpU1veKaXobC5pPEwImeNk1D/jYUELVWb7h3UZ0XSi2NqEfRv
+                 fJHWjbSW0Kkv40AxTHxomXdejwBriVcr2gaFbVvJH7JlKvCHGld2txEk3O7gg/d
+                 qpEakuO/5NecFWOUEjLOnTVnv0MUg/8QKBgQDnU6VYzU6MiCoDRDv3g6Kw40MEi
+                 3F3rUpjoJbUg1mZk4+DtsT3dTGVZXH+mvFMb2ZDsZdVHKGrsMcqcnelV92ldgiIb
+                 MetOU07OBRcQpS2Wr1UPeya+943I8jPvSWlvB2JxAiQFKTdkEvbQHEkRTjgO8IpS
+                 CqQ2KyH+CZSemUNkwKBgQDAMFJtqFIF3UCEjj48oxo0yOpWGU1uX+t+xvuojTwlP
+                 6Yip+gstPEAdTY0IiDZbfzdTQZP7jsPsl1C3/PPUAhNoinTrMvBHAOf4XSwnd4By
+                 dZ2zUmDMhr8Dqrc8Mgkux1GL1ZIG7MzJ5Yc1C7a+9/xL4zCx1SbTyfakYohq6NrC
+                 QKBgAXv3aSD0GpG7F0dGTTnCfvkOUoakhTyO6CG9JgLrvcEFIDa5f874MPm0KAqN
+                 dsyWLuQCURD8dpINTRfr7ZspOGkP9/Qeud1Owg0DkG3670qYwWQeUwY/sEHiBXc0
+                 uSICXIJt/aKsRiGpYvBAaZeqHEI15jbo0wIY5UxxzoCrilFAoGBAIUNLxOhkt9id
+                 DcQrr+V/x+J9MmUjMmb+FH1eeYPmRMEhIS7j33b6njxrIvdELbWcVfX6kXN3O+aA
+                 Py6RHVCp+zvFlvn5cuUFGJMWFepgzfjvujSaFE+j/XuRZXd0AG11KdxQB99pcsFX
+                 eQpdSK/eyLjU2TJUKaQ3ztuxJ1Y0TLZAoGBAOMPgrb3XCd8Uht03I3HDuDe+4D+9
+                 z9G8fSfwPN2tJBTIl9AuiUOioQYSxyHKQ8IYouki8jPMpuesBR3tYDFAzpQXZnaYb
+                 L+KdTmDpXrTMcSCWadMDp+s2Qkek7v7MrbDpVA6fEVpo/PvRZUyvigprSNMaF6dEq807mdVQoP1amo
+    alipay-public-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqlDWwQCABGeuRALooQdy
+                       EJnzvnscEPOWNcX14XJMYqjX9qoX81pRhxMdlq9wek4kwtUoXLnv9LfEFLpo1ZEp
+                       Oc3mnPgRe7iPO0ElyunnCW0Qo5+LiPIRlyYnrgePwNdmR3xD+rWPS3oC8p/2LvAH
+                       DY2UtJ0O1QguiFnAaaX/BkbfuTvAwI0VrkvcNuvu7pSEy6dfoyXGyFUL7QgWAufPV
+                       t6n6OQwJrqoqgyCAOSrG2IlH4xUWFnZYrKJ2zx5ERpr4ZBWn69PZ/AlROEvX61i7k
+                       7ib3ChIW3f94kJ/oQKkzfd3JiQed8zCoLDWstRHKA/IVTTxzWA3IMKx9IM474zkwIDAQAB

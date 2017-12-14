@@ -1,0 +1,79 @@
+server:
+  port: 8021
+  display-name: bz_automati-task
+  clientNo: BZ00021
+spring:  
+  profiles:  
+    active: test
+################################################测试环境配置#######################################################
+---                                                       
+spring:
+  profiles: test
+  aop:
+    proxy-target-class: true
+#############dubbo配置###########################    
+  dubbo: 
+   application:
+     name: bz_third-party-provider
+   base-package: com.bz.task  # dubbo服务发布者所在的包
+   registry:
+     address: 192.168.2.202:2181,192.168.2.205:2181                   # zookeeper注册中心的地址
+     port: 2181                           # zookeeper注册中心的端口
+   protocols:
+     - name: dubbo
+       serialization: hessian2
+     - name: hessian 
+   provider:
+     retries: 0                           # 服务调用重试次数，服务发布者不给重试，让服务调用者自己重试
+   consumer:
+     timeout: 60000 
+     check: false                          # 服务启动时检查被调用服务是否可用
+     retries: 2                           # 服务调用重试次数 
+
+
+##########视图模板配置###############################################################################################
+  freemarker:
+    cache: true
+    template-loader-path:
+      - classpath:/templates/
+    allow-request-override: false
+    allow-session-override: false
+    check-template-location: true
+    charset: UTF-8
+    enabled: true
+    content-type: text/html
+    expose-request-attributes: true
+    expose-session-attributes: true
+    expose-spring-macro-helpers: true
+    prefer-file-system-access: true
+    suffix: .ftl
+    request-context-attribute: request
+    settings:
+      number_format: 0.######
+      boolean_format: true,false
+      datetime_format: yyyy-MM-dd HH:mm:ss
+      date_format: yyyy-MM-dd
+      time_format: HH:mm:ss
+      object_wrapper: freemarker.ext.beans.BeansWrapper
+      whitespace_stripping: true
+      tag_syntax: square_bracket
+      template_update_delay: 0
+      classic_compatible: true
+##################线程池配置#################################################
+  task:
+    pool:
+      core-pool-size: 5  #####线程池维护线程的最少数量
+      keep-alive-seconds: 200 ###允许的空闲时间
+      max-pool-size: 50    ##############线程池维护线程的最大数量
+      queue-capacity: 20  ###缓存队列    
+#####################定时任务表达式###########################################      
+task: 
+  order-timeOut: 0 0/10 * * * ?   ##订单超时检查时间
+  report-form: 0 0 8 * * ?  ###每天早上八点发送系统报表
+####################发送邮件到指定邮箱#########################################
+mail:
+  technologyDepartment: 13896667100@163.com ##########技术部邮箱
+####################订单超时时间区间设置#######################################
+order:
+  time-out:  900  ####订单超时时间 15分钟(以秒为单位)
+  

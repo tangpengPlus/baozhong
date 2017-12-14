@@ -1,0 +1,262 @@
+@charset "utf-8";
+html,
+body {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+html * {
+  outline: none;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: #000000;
+}
+html,
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+  font-style: normal;
+  font-weight: 500;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+input {
+  border-radius: 0;
+}
+img {
+  display: block;
+  border: none;
+  vertical-align: middle;
+}
+i,
+em {
+  font-style: normal;
+}
+a {
+  text-decoration: none;
+  color: #000000;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-user-select: none;
+  -moz-user-focus: none;
+  -moz-user-select: none;
+}
+t a,
+a:hover,
+a:active,
+a:visited,
+a:link,
+a:focus {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  background: none;
+  text-decoration: none;
+}
+:focus {
+  outline: none;
+}
+.clear:before,
+.clear:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.clear {
+  zoom: 1;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.top-bar {
+  width: 100%;
+  height: 2.4rem;
+  background: #f0f0f0;
+  border-bottom: 1px solid #6a6667;
+  box-shadow: 0 1px 1px #bcbabb;
+  position: relative;
+}
+.top-bar .return {
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  display: block;
+  width: 2.2rem;
+  height: 2.4rem;
+  line-height: 2.4rem;
+  text-align: center;
+  font-size: 0.8rem;
+  padding-left: 0.55rem;
+  background: url("/img/bg/bg-return.png") no-repeat left center;
+  background-size: 20% 40%;
+}
+.top-bar h1 {
+  width: 100%;
+  height: 100%;
+  line-height: 2.4rem;
+  text-align: center;
+  font-size: 1rem;
+}
+.return-top {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: fixed;
+  top: 80%;
+  right: 0;
+  display: none;
+}
+.return-top a img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.personal-box {
+  margin-top: 0.5rem;
+  width: 100%;
+  height: 10.7rem;
+  background: url("/img/bg/bg-user-center.png") no-repeat 0 0;
+  background-size: 100% 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 3px #5b5a5a;
+}
+.personal-box .head-img {
+  width: 100%;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  padding-top: 1.3rem;
+}
+.personal-box .head-img a {
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.personal-box .head-img a img {
+  width: 100%;
+  height: 100%;
+}
+.personal-box .head-num {
+  width: 100%;
+  padding-top: 0.6rem;
+}
+.personal-box .head-num p {
+  text-align: center;
+}
+.personal-box .head-num p a {
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+.personal-box .head-num span {
+  display: block;
+  text-align: center;
+}
+.personal-box .head-num span a {
+  font-size: 0.75rem;
+  color: #ffffff;
+}
+.box {
+  display: block;
+  margin-top: 0.5rem;
+  width: 100%;
+  height: 6rem;
+}
+.box.order {
+  background: url("/img/bg/bg-my-order.png") no-repeat;
+  background-size: 100% 100%;
+}
+.box.coupon {
+  background: url("/img/bg/bg-my-coupon.png") no-repeat;
+  background-size: 100% 100%;
+}
+.box.message {
+  background: url("/img/bg/bg-my-message.png") no-repeat;
+  background-size: 100% 100%;
+}
+.box .title-img {
+  padding-top: 1.4rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+}
+.box .title-img a {
+  display: inline-block;
+  height: 1.5rem;
+}
+.box .title-img a img {
+  height: 100%;
+}
+.box p {
+  margin-top: 0.7rem;
+  text-align: center;
+}
+.box p a {
+  font-size: 1.25rem;
+  color: #ffffff;
+}
